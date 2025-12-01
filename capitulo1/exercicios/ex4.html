@@ -1,1 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Pedido</title>
 
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f7f7f7;
+        }
+
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 700px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        fieldset {
+            margin-bottom: 20px;
+            padding: 15px;
+        }
+
+        legend {
+            font-weight: bold;
+            padding: 0 10px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input, textarea, select {
+            padding: 8px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        input[type="color"],
+        input[type="range"] {
+            width: auto;
+        }
+
+        button {
+            padding: 12px 20px;
+            background: #0066cc;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #004999;
+        }
+    </style>
+</head>
+
+<body>
+
+<form>
+    <!-- ============================ -->
+    <!-- SEÇÃO 1: INFORMAÇÕES DO CLIENTE -->
+    <!-- ============================ -->
+    <fieldset>
+        <legend>Informações do Cliente</legend>
+
+        <label for="nome">Nome Completo:</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" autocomplete="email" required>
+
+        <label for="telefone">Telefone:</label>
+        <input type="tel" id="telefone" name="telefone"
+               pattern="\\([0-9]{2}\\) [0-9]{5}-[0-9]{4}"
+               title="Formato esperado: (XX) XXXXX-XXXX"
+               placeholder="(11) 98765-4321"
+               required>
+
+        <label for="senha">Senha de Acesso:</label>
+        <input type="password" id="senha" name="senha"
+               minlength="8"
+               pattern=".{8,}"
+               title="A senha deve ter pelo menos 8 caracteres."
+               required>
+
+        <label for="site">Site (Opcional):</label>
+        <input type="url" id="site" name="site" placeholder="https://exemplo.com">
+    </fieldset>
+
+
+    <!-- ============================ -->
+    <!-- SEÇÃO 2: DETALHES DO PEDIDO -->
+    <!-- ============================ -->
+    <fieldset>
+        <legend>Detalhes do Pedido</legend>
+
+        <label for="cor">Cor Preferencial:</label>
+        <input type="color" id="cor" name="cor" value="#0000ff">
+
+        <label for="entrega">Data e Hora de Entrega:</label>
+        <input type="datetime-local" id="entrega" name="entrega"
+               min="2026-01-01T00:00"
+               max="2026-12-31T23:59"
+               required>
+
+        <label for="quantidade">Quantidade de Itens:</label>
+        <input type="range" id="quantidade" name="quantidade"
+               min="1" max="10" value="5">
+
+        <label for="modelo">Modelo do Produto:</label>
+        <input list="modelos" id="modelo" name="modelo" required>
+        
+        <datalist id="modelos">
+            <option value="Laptop Pro">
+            <option value="Tablet Slim">
+            <option value="Smartwatch X">
+        </datalist>
+
+    </fieldset>
+
+
+    <!-- ============================ -->
+    <!-- SEÇÃO 3: OPÇÕES DE ENVIO -->
+    <!-- ============================ -->
+    <fieldset>
+        <legend>Opções de Envio</legend>
+
+        <p>Tipo de Envio:</p>
+
+        <label>
+            <input type="radio" name="envio" value="normal" checked>
+            Envio Normal
+        </label>
+
+        <label>
+            <input type="radio" name="envio" value="expresso">
+            Envio Expresso
+        </label>
+
+        <label for="comentarios">Comentários Adicionais:</label>
+        <textarea id="comentarios" name="comentarios" minlength="10" maxlength="300"
+                  placeholder="Escreva seus comentários aqui (mín. 10 caracteres, máx. 300)."></textarea>
+
+    </fieldset>
+
+
+    <!-- ============================ -->
+    <!-- SEÇÃO 4: FINALIZAÇÃO -->
+    <!-- ============================ -->
+    <fieldset>
+        <legend>Finalização</legend>
+
+        <label>
+            <input type="checkbox" name="termos" required>
+            Eu concordo com os Termos de Serviço
+        </label>
+
+        <br><br>
+        <button type="submit">Finalizar Pedido</button>
+    </fieldset>
+
+</form>
+
+</body>
+</html>
