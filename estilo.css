@@ -34,7 +34,7 @@ nav ul {
 }
 
 nav li {
-    border-bottom: 1px solid #888;
+    border-bottom: 1px solid #f;
 }
 
 nav a {
@@ -46,7 +46,7 @@ nav a {
 }
 
 nav a:hover {
-    background-color: #888;
+    background-color: #ffffff;
     color: white;
 }
 
